@@ -89,7 +89,7 @@ const Form = () => {
         value={endActivityTime}
         onChange={(e) => setEndActivityTime(e.target.value)}
       />
-      <Button type="submit" variant="contained">
+      <Button onClick={register} type="submit" variant="contained">
         送信
       </Button>
     </form>
