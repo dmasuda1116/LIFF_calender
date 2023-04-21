@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
+import Typography from '@mui/material/Typography';
 
 const Form = () => {
   const [duration, setDuration] = useState("10");
@@ -77,8 +78,10 @@ const Form = () => {
   
     return (
       <form onSubmit={handleSubmit}>
+        <Typography variant="h6" gutterBottom>
+          日数
+        </Typography>
         <FormControl fullWidth>
-          <InputLabel>期間 (日数)</InputLabel>
           <Select
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
@@ -88,9 +91,11 @@ const Form = () => {
             ))}
           </Select>
         </FormControl>
-  
+
+        <Typography variant="h6" gutterBottom>
+          空き時間
+        </Typography>  
         <FormControl fullWidth>
-          <InputLabel>空き時間</InputLabel>
           <Select
             value={freeTime}
             onChange={(e) => setFreeTime(e.target.value)}
@@ -100,9 +105,11 @@ const Form = () => {
             ))}
           </Select>
         </FormControl>
-  
+
+        <Typography variant="h6" gutterBottom>
+          移動、準備時間
+        </Typography>  
         <FormControl fullWidth>
-          <InputLabel>移動、準備時間</InputLabel>
           <Select
             value={preparationTime}
             onChange={(e) => setPreparationTime(e.target.value)}
@@ -112,9 +119,11 @@ const Form = () => {
             ))}
           </Select>
         </FormControl>
-  
+
+        <Typography variant="h6" gutterBottom>
+          開始時間
+        </Typography>  
         <FormControl fullWidth>
-        <InputLabel>1日の開始活動開始時間</InputLabel>
         <Box display="flex" justifyContent="space-between">
           <Select
             value={startActivityTimeHour}
@@ -133,8 +142,10 @@ const Form = () => {
         </Box>
       </FormControl>
 
+      <Typography variant="h6" gutterBottom>
+          終了
+        </Typography>
       <FormControl fullWidth>
-        <InputLabel>1日の活動終了時間</InputLabel>
         <Box display="flex" justifyContent="space-between">
           <Select
             value={endActivityTimeHour}
