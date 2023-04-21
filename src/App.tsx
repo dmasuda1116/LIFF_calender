@@ -18,12 +18,16 @@ const Form = () => {
       })
       .then(() => {
         console.log("LIFF init succeeded.");
+        window.alert("LIFF init succeeded");
       })
       .catch((e: Error) => {
         console.log("LIFF init failed.");
+        window.alert("LIFF init failed");
         console.error(`${e}`);
+        window.alert(`${e}`);
       });
   }, []);
+
 
   const register = () => {
     const message = `カレンダー確認
