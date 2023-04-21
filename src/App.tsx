@@ -32,13 +32,12 @@ const Form = () => {
 
 
   const register = () => {
-    const message = `カレンダー確認
-  期間: ${duration}日間
-  空き時間: ${freeTime}
-  移動、準備時間: ${preparationTime}
-  1日の開始活動開始時間: ${startActivityTime}
-  1日の活動終了時間: ${endActivityTime}`;
-
+    const message: string = `カレンダー確認
+期間: ${duration}日間
+空き時間: ${freeTime}
+移動、準備時間: ${preparationTime}
+1日の開始活動開始時間: ${startActivityTime}
+1日の活動終了時間: ${endActivityTime}`;
     liff
       .sendMessages([
         {
