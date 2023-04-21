@@ -4,6 +4,7 @@ import liff from "@line/liff";
 import Stack from '@mui/material/Stack';
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
+import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from '@mui/material/Typography';
 
@@ -75,82 +76,92 @@ const Form = () => {
     setEndActivityTimeMinute("");
   };
   
-    return (
+  return (
+    <Container maxWidth="sm">
       <form onSubmit={handleSubmit}>
-        <Typography variant="h6" gutterBottom>
-          日数
-        </Typography>
-        <FormControl fullWidth>
-          <Select
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-          >
-            {Array.from({length: 6}, (_, i) => 5 * (i + 1)).map((value) => (
-              <MenuItem key={value} value={value}>{value}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
-        <Typography variant="h6" gutterBottom>
-          空き時間
-        </Typography>  
-        <FormControl fullWidth>
-          <Select
-            value={freeTime}
-            onChange={(e) => setFreeTime(e.target.value)}
-          >
-            {["15分", "30分", "45分", "1時間", "1時間15分", "1時間30分", "1時間45分", "2時間", "2時間15分", "2時間30分", "2時間45分", "3時間"].map((value) => (
-              <MenuItem key={value} value={value}>{value}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
-        <Typography variant="h6" gutterBottom>
-          移動、準備時間
-        </Typography>  
-        <FormControl fullWidth>
-          <Select
-            value={preparationTime}
-            onChange={(e) => setPreparationTime(e.target.value)}
-          >
-            {["15分", "30分", "45分", "1時間", "1時間15分", "1時間30分", "1時間45分", "2時間", "2時間15分", "2時間30分", "2時間45分", "3時間"].map((value) => (
-              <MenuItem key={value} value={value}>{value}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
-        <Typography variant="h6" gutterBottom>
-          開始時間
-        </Typography>  
-        <FormControl fullWidth>
-          <Box display="flex" justifyContent="space-between">
+        <Box mt={3}>
+          <Typography variant="subtitle1" gutterBottom>
+            日数
+          </Typography>
+          <FormControl fullWidth>
             <Select
-              value={startActivityTimeHour}
-              onChange={(e) => setStartActivityTimeHour(e.target.value)}
-              style={{ width: "45%" }}
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
             >
-              {Array.from({ length: 24 }, (_, i) => i + 1).map((value) => (
-                <MenuItem key={value} value={value}>
-                  {value}
-                </MenuItem>
+              {Array.from({length: 6}, (_, i) => 5 * (i + 1)).map((value) => (
+                <MenuItem key={value} value={value}>{value}</MenuItem>
               ))}
             </Select>
+          </FormControl>
+        </Box>
+  
+        <Box mt={3}>
+          <Typography variant="subtitle1" gutterBottom>
+            空き時間
+          </Typography>
+          <FormControl fullWidth>
             <Select
-              value={startActivityTimeMinute}
-              onChange={(e) => setStartActivityTimeMinute(e.target.value)}
-              style={{ width: "45%" }}
+              value={freeTime}
+              onChange={(e) => setFreeTime(e.target.value)}
             >
-              {Array.from({ length: 12 }, (_, i) => 5 * i).map((value) => (
-                <MenuItem key={value} value={value}>
-                  {value}
-                </MenuItem>
+              {["15分", "30分", "45分", "1時間", "1時間15分", "1時間30分", "1時間45分", "2時間", "2時間15分", "2時間30分", "2時間45分", "3時間"].map((value) => (
+                <MenuItem key={value} value={value}>{value}</MenuItem>
               ))}
             </Select>
-          </Box>
-        </FormControl>
-
-        <Typography variant="h6" gutterBottom>
-            終了
+          </FormControl>
+        </Box>
+  
+        <Box mt={3}>
+          <Typography variant="subtitle1" gutterBottom>
+            移動・準備時間
+          </Typography>
+          <FormControl fullWidth>
+            <Select
+              value={preparationTime}
+              onChange={(e) => setPreparationTime(e.target.value)}
+            >
+              {["15分", "30分", "45分", "1時間", "1時間15分", "1時間30分", "1時間45分", "2時間", "2時間15分", "2時間30分", "2時間45分", "3時間"].map((value) => (
+                <MenuItem key={value} value={value}>{value}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+  
+        <Box mt={3}>
+          <Typography variant="subtitle1" gutterBottom>
+            開始時間
+          </Typography>
+          <FormControl fullWidth>
+            <Box display="flex" justifyContent="space-between">
+              <Select
+                value={startActivityTimeHour}
+                onChange={(e) => setStartActivityTimeHour(e.target.value)}
+                style={{ width: "45%" }}
+              >
+                {Array.from({ length: 24 }, (_, i) => i + 1).map((value) => (
+                  <MenuItem key={value} value={value}>
+                    {value}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Select
+                value={startActivityTimeMinute}
+                onChange={(e) => setStartActivityTimeMinute(e.target.value)}
+                style={{ width: "45%" }}
+              >
+                {Array.from({ length: 12 }, (_, i) => 5 * i).map((value) => (
+                  <MenuItem key={value} value={value}>
+                    {value}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Box>
+          </FormControl>
+        </Box>
+  
+        <Box mt={3}>
+          <Typography variant="subtitle1" gutterBottom>
+            終了時間
           </Typography>
           <FormControl fullWidth>
             <Box display="flex" justifyContent="space-between">
@@ -178,15 +189,18 @@ const Form = () => {
               </Select>
             </Box>
           </FormControl>
-      <Stack direction="row" spacing={2}>
-        <Button onClick={close} variant="outlined" startIcon={<DeleteIcon />}>
-          削除
-        </Button>
-        <Button onClick={register} variant="contained" endIcon={<SendIcon />}>
-          登録
-        </Button>
-      </Stack>
-    </form>
+        </Box>
+
+        <Box mt={3} display="flex" justifyContent="space-between">
+          <Button onClick={close} variant="outlined" startIcon={<DeleteIcon />}>
+            削除
+          </Button>
+          <Button onClick={register} variant="contained" endIcon={<SendIcon />}>
+            登録
+          </Button>
+        </Box>
+      </form>
+    </Container>
   );
 };
 
