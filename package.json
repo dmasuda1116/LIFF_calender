@@ -1,0 +1,26 @@
+{
+  "name": "calender",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && cp -r dist docs",
+    "preview": "vite preview",
+    "rebuild": "vite build && rm -R docs && cp -r dist docs",
+    "git": "git add . && git commit && git push origin main"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@line/liff": "2.22.0",
+    "@mui/material": "^5.12.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.37",
+    "@types/react-dom": "18.0.11",
+    "@vitejs/plugin-react": "4.0.0",
+    "typescript": "5.0.4",
+    "vite": "4.3.1"
+  }
+}
