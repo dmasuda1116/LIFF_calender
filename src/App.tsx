@@ -35,15 +35,15 @@ const Form = () => {
 
 
   const register = () => {
-    const startActivityTime = `${startActivityTimeHour}時${startActivityTimeMinute}分`;
-    const endActivityTime = `${endActivityTimeHour}時${endActivityTimeMinute}分`;
+    const startActivityTime = `${startActivityTimeHour}時${String(startActivityTimeMinute).padStart(2, '0')}分`;
+    const endActivityTime = `${endActivityTimeHour}時${String(endActivityTimeMinute).padStart(2, '0')}分`;
   
     const message: string = `カレンダー確認
-  期間: ${duration}日間
-  空き時間: ${freeTime}
-  移動、準備時間: ${preparationTime}
-  1日の開始活動開始時間: ${startActivityTime}
-  1日の活動終了時間: ${endActivityTime}`;
+期間: ${duration}日間
+空き時間: ${freeTime}
+移動、準備時間: ${preparationTime}
+開始時間: ${startActivityTime}
+終了時間: ${endActivityTime}`;
     liff
       .sendMessages([
         {
