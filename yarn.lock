@@ -955,9 +955,9 @@
     file-type "^16.5.4"
     form-data "^4.0.0"
 
-"@line/liff@2.22.0":
+"@line/liff@^2.22.0":
   version "2.22.0"
-  resolved "https://registry.npmjs.org/@line/liff/-/liff-2.22.0.tgz"
+  resolved "https://registry.yarnpkg.com/@line/liff/-/liff-2.22.0.tgz#2a504beca06c69de41d2623c3e90f517d23f2d13"
   integrity sha512-4oRrEPzfax/vvedYMwBjgzT/ZBwVmZYhnMXaN3YrHab1y4fxE2aqwwV8u5NAqEh7ikLJR0sZMH+Ubj2oMNEh/Q==
   dependencies:
     "@liff/analytics" "2.22.0"
