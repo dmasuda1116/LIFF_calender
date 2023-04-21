@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button } from "@mui/material";
 import liff from "@line/liff";
-import dayjs from "dayjs";
+import Stack from '@mui/material/Stack';
+import DeleteIcon from "@mui/icons-material/Delete";
+import SendIcon from "@mui/icons-material/Send";
 
 const Form = () => {
   const [duration, setDuration] = useState("");
@@ -93,9 +95,14 @@ const Form = () => {
         value={endActivityTime}
         onChange={(e) => setEndActivityTime(e.target.value)}
       />
-      <Button onClick={register} type="submit" variant="contained">
-        送信
-      </Button>
+      <Stack direction="row" spacing={2}>
+        <Button onClick={close} variant="outlined" startIcon={<DeleteIcon />}>
+          削除
+        </Button>
+        <Button onClick={register} variant="contained" endIcon={<SendIcon />}>
+          登録
+        </Button>
+      </Stack>
     </form>
   );
 };
