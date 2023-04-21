@@ -24,7 +24,6 @@ const Form = () => {
       })
       .then(() => {
         console.log("LIFF init succeeded.");
-        window.alert("LIFF init succeeded");
       })
       .catch((e: Error) => {
         console.log("LIFF init failed.");
@@ -124,46 +123,61 @@ const Form = () => {
           開始時間
         </Typography>  
         <FormControl fullWidth>
-        <Box display="flex" justifyContent="space-between">
-          <Select
-            value={startActivityTimeHour}
-            onChange={(e) => setStartActivityTimeHour(e.target.value)}
-            style={{ width: "45%" }}
-          >
-            {/* Hour options */}
-          </Select>
-          <Select
-            value={startActivityTimeMinute}
-            onChange={(e) => setStartActivityTimeMinute(e.target.value)}
-            style={{ width: "45%" }}
-          >
-            {/* Minute options */}
-          </Select>
-        </Box>
-      </FormControl>
+          <Box display="flex" justifyContent="space-between">
+            <Select
+              value={startActivityTimeHour}
+              onChange={(e) => setStartActivityTimeHour(e.target.value)}
+              style={{ width: "45%" }}
+            >
+              {Array.from({ length: 24 }, (_, i) => i + 1).map((value) => (
+                <MenuItem key={value} value={value}>
+                  {value}
+                </MenuItem>
+              ))}
+            </Select>
+            <Select
+              value={startActivityTimeMinute}
+              onChange={(e) => setStartActivityTimeMinute(e.target.value)}
+              style={{ width: "45%" }}
+            >
+              {Array.from({ length: 12 }, (_, i) => 5 * i).map((value) => (
+                <MenuItem key={value} value={value}>
+                  {value}
+                </MenuItem>
+              ))}
+            </Select>
+          </Box>
+        </FormControl>
 
-      <Typography variant="h6" gutterBottom>
-          終了
-        </Typography>
-      <FormControl fullWidth>
-        <Box display="flex" justifyContent="space-between">
-          <Select
-            value={endActivityTimeHour}
-            onChange={(e) => setEndActivityTimeHour(e.target.value)}
-            style={{ width: "45%" }}
-          >
-            {/* Hour options */}
-          </Select>
-          <Select
-            value={endActivityTimeMinute}
-            onChange={(e) => setEndActivityTimeMinute(e.target.value)}
-            style={{ width: "45%" }}
-          >
-            {/* Minute options */}
-          </Select>
-        </Box>
-      </FormControl>
-
+        <Typography variant="h6" gutterBottom>
+            終了
+          </Typography>
+          <FormControl fullWidth>
+            <Box display="flex" justifyContent="space-between">
+              <Select
+                value={endActivityTimeHour}
+                onChange={(e) => setEndActivityTimeHour(e.target.value)}
+                style={{ width: "45%" }}
+              >
+                {Array.from({ length: 24 }, (_, i) => i + 1).map((value) => (
+                  <MenuItem key={value} value={value}>
+                    {value}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Select
+                value={endActivityTimeMinute}
+                onChange={(e) => setEndActivityTimeMinute(e.target.value)}
+                style={{ width: "45%" }}
+              >
+                {Array.from({ length: 12 }, (_, i) => 5 * i).map((value) => (
+                  <MenuItem key={value} value={value}>
+                    {value}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Box>
+          </FormControl>
       <Stack direction="row" spacing={2}>
         <Button onClick={close} variant="outlined" startIcon={<DeleteIcon />}>
           削除
