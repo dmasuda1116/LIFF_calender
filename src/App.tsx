@@ -4,15 +4,16 @@ import liff from "@line/liff";
 import Stack from '@mui/material/Stack';
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from "@mui/icons-material/Send";
+import Box from "@mui/material/Box";
 
 const Form = () => {
-  const [duration, setDuration] = useState("");
-  const [freeTime, setFreeTime] = useState("");
-  const [preparationTime, setPreparationTime] = useState("");
-  const [startActivityTimeHour, setStartActivityTimeHour] = useState("");
-  const [startActivityTimeMinute, setStartActivityTimeMinute] = useState("");
-  const [endActivityTimeHour, setEndActivityTimeHour] = useState("");
-  const [endActivityTimeMinute, setEndActivityTimeMinute] = useState("");
+  const [duration, setDuration] = useState("10");
+  const [freeTime, setFreeTime] = useState("1時間");
+  const [preparationTime, setPreparationTime] = useState("30分");
+  const [startActivityTimeHour, setStartActivityTimeHour] = useState("8");
+  const [startActivityTimeMinute, setStartActivityTimeMinute] = useState("0");
+  const [endActivityTimeHour, setEndActivityTimeHour] = useState("23");
+  const [endActivityTimeMinute, setEndActivityTimeMinute] = useState("0");
 
   // LIFF initialization
   useEffect(() => {
@@ -113,51 +114,43 @@ const Form = () => {
         </FormControl>
   
         <FormControl fullWidth>
-          <InputLabel>1日の開始活動開始時間 (時間)</InputLabel>
+        <InputLabel>1日の開始活動開始時間</InputLabel>
+        <Box display="flex" justifyContent="space-between">
           <Select
             value={startActivityTimeHour}
             onChange={(e) => setStartActivityTimeHour(e.target.value)}
+            style={{ width: "45%" }}
           >
-            {Array.from({length: 24}, (_, i) => i + 1).map((value) => (
-              <MenuItem key={value} value={value}>{value}</MenuItem>
-            ))}
+            {/* Hour options */}
           </Select>
-        </FormControl>
-  
-        <FormControl fullWidth>
-          <InputLabel>1日の開始活動開始時間 (分)</InputLabel>
           <Select
-          value={startActivityTimeMinute}
-          onChange={(e) => setStartActivityTimeMinute(e.target.value)}
-        >
-          {Array.from({length: 12}, (_, i) => 5 * i).map((value) => (
-            <MenuItem key={value} value={value}>{value}</MenuItem>
-          ))}
-        </Select>
+            value={startActivityTimeMinute}
+            onChange={(e) => setStartActivityTimeMinute(e.target.value)}
+            style={{ width: "45%" }}
+          >
+            {/* Minute options */}
+          </Select>
+        </Box>
       </FormControl>
 
       <FormControl fullWidth>
-        <InputLabel>1日の開始活動終了時間 (時間)</InputLabel>
-        <Select
-          value={endActivityTimeHour}
-          onChange={(e) => setEndActivityTimeHour(e.target.value)}
-        >
-          {Array.from({length: 24}, (_, i) => i + 1).map((value) => (
-            <MenuItem key={value} value={value}>{value}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <FormControl fullWidth>
-        <InputLabel>1日の開始活動終了時間 (分)</InputLabel>
-        <Select
-          value={endActivityTimeMinute}
-          onChange={(e) => setEndActivityTimeMinute(e.target.value)}
-        >
-          {Array.from({length: 12}, (_, i) => 5 * i).map((value) => (
-            <MenuItem key={value} value={value}>{value}</MenuItem>
-          ))}
-        </Select>
+        <InputLabel>1日の活動終了時間</InputLabel>
+        <Box display="flex" justifyContent="space-between">
+          <Select
+            value={endActivityTimeHour}
+            onChange={(e) => setEndActivityTimeHour(e.target.value)}
+            style={{ width: "45%" }}
+          >
+            {/* Hour options */}
+          </Select>
+          <Select
+            value={endActivityTimeMinute}
+            onChange={(e) => setEndActivityTimeMinute(e.target.value)}
+            style={{ width: "45%" }}
+          >
+            {/* Minute options */}
+          </Select>
+        </Box>
       </FormControl>
 
       <Stack direction="row" spacing={2}>
