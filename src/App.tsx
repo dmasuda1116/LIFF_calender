@@ -23,7 +23,7 @@ const Form = () => {
         console.log("LIFF init failed.");
         console.error(`${e}`);
       });
-  });
+  }, []);
 
   const register = () => {
     const message = `カレンダー確認
@@ -32,18 +32,20 @@ const Form = () => {
   移動、準備時間: ${preparationTime}
   1日の開始活動開始時間: ${startActivityTime}
   1日の活動終了時間: ${endActivityTime}`;
-  
-    liff.sendMessages([
-      {
-        type: "text",
-        text: message,
-      },
-    ])
+
+    liff
+      .sendMessages([
+        {
+          type: "text",
+          text: message,
+        },
+      ])
       .then(function () {
         liff.closeWindow();
       })
       .catch(function (error) {
-        window.alert("Fail to send message" + error);
+        console.error(error);
+        window.alert("Fail to send message" + error.message);
       });
   };
 
