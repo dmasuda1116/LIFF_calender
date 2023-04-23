@@ -42,7 +42,7 @@ const Form = () => {
     const message: string = `カレンダー確認
 期間: ${duration}日間
 空き時間: ${freeTime}
-移動、準備時間: ${preparationTime}
+移動・準備時間: ${preparationTime}
 開始時間: ${startActivityTime}
 終了時間: ${endActivityTime}`;
     liff
